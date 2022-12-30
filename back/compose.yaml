@@ -11,9 +11,4 @@ services:
     working_dir: /srv/src
     ports:
       - 8081:80
-    entrypoint: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
-    networks:
-      - kanri_network
-
-networks:
-  kanri_network:
+    entrypoint: ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "80"]

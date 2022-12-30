@@ -11,10 +11,4 @@ services:
     working_dir: /srv/app
     ports:
       - 8080:5173
-    # tty: true
     entrypoint: ["npm", "run", "dev"]
-    networks:
-      - kanri_network
-
-networks:
-  kanri_network:
