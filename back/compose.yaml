@@ -11,19 +11,20 @@ services:
     working_dir: /srv/api
     ports:
       - 8081:80
-    entrypoint: ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "80"]
+    command: ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "80"]
+    env_file:
+      - ./.env.dev
     networks:
       - kanri_network
+    depends_on:
+      - db
   db:
     container_name: db
     image: mysql:8.0
-    environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=1
-      - MYSQL_DATABASE=kanri_db
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=pass
     volumes:
       - kanri_app_data:/var/lib/mysql
+    env_file:
+      - ./.env.dev
     networks:
       - kanri_network
 

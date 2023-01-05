@@ -5,3 +5,5 @@
 
 ### back
 - FastAPI
+- SQLAlchemy
+- Alembic
