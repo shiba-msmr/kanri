@@ -4,4 +4,7 @@ RUN pip install fastapi\
   uvicorn[standard]\
   sqlalchemy\
   mysqlclient\
-  alembic
+  alembic\
+  python-multipart\
+  python-jose[cryptography]\
+  passlib[bcrypt]
